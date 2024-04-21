@@ -15,8 +15,6 @@ const selectJobs = (state: { jobs: JobsState, currentPage: number, search: strin
 
 
 const Main: React.FC<MainProps> = ({ onMobileMenuopen }) => {
-  const [pageNumber, setpageNumber] = useState<number>(1)
-  const [resetPagination, setResetPagination] = useState<boolean>(false)
   const [filterdJobs, setFilterdJobs] = useState<Job[] | []>()
 
 
@@ -26,18 +24,20 @@ const Main: React.FC<MainProps> = ({ onMobileMenuopen }) => {
 
     dispatch(readJobs(JopStore.currentPage, JopStore.search));
 
-     let filterdArray= filterJobsHandler(JopStore.jobs)
-     
-    setFilterdJobs(filterdArray)
-
-  }, [JopStore.jobs.jobs,JopStore.currentPage, JopStore.search])
+  }, [JopStore.currentPage, JopStore.search])
 
 
   const onPageChange = (pageNumber: number) => {
     dispatch(setCurrentPageAction(pageNumber))
   }
+  useEffect(()=>{
+    let filterdArray= filterJobsHandler(JopStore.jobs)
+     
+    setFilterdJobs(filterdArray)
+  },[JopStore.jobs.jobs,JopStore.filter])
 
   const filterJobsHandler = (jobArray:JobsState) => {
+    console.log({jobArray})
     return  jobArray.jobs.filter(job => {
       const sectorMatch = JopStore.filter.sector === ''? true : job.sector === JopStore.filter.sector;
       const countryMatch = JopStore.filter.country ===''? true : job.country === JopStore.filter.country;
