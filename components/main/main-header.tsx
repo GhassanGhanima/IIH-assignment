@@ -28,6 +28,7 @@ const MainHeader: React.FC<MainHeaderProps> = ({ onMobileMenuopen }) => {
   useEffect(() => {
     dispatch(readSearch(search));
   }, [debouncedSearch])
+  
 
 
   const handleSearchInputChange = (newValue: string) => {
