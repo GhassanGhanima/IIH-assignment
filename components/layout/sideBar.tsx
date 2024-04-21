@@ -16,8 +16,8 @@ const SideBar: React.FC<SideBarProps> = ({ onMobileMenuClose }) => {
 
   const [countriesData, setCountriesData] = useState<Country[]>([]);
   const [sectors, setSectors] = useState<any[] | null>(null);
-  const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
-  const [activeCities, setActiveCities] = useState<Cities | null>(null);
+  const [selectedCountry, setSelectedCountry] =useState<Country | null>(null);
+  const [activeCities, setActiveCities] = useState<Cities | null| any>(null);
   const [selectedFilter, setSelectedFilter] = useState<FilterSideBar>({
     sector: '',
     country: '',
@@ -44,19 +44,23 @@ const SideBar: React.FC<SideBarProps> = ({ onMobileMenuClose }) => {
   }, [selectedFilter]);
 
 
-  const updatecountryHandler = (id: string) => {
-
-    const Country = countriesData.find((country: Country) => country.label === id);
-    let Cities = Country?.cities
-    if (Cities) {
-      setActiveCities(Cities)
+  const updateCountryHandler = (id: string) => {
+    const Country = countriesData.find((country: Country) => country.label === id) as Country | undefined;
+    if (Country) {
+      setActiveCities(Country.cities);
+      setSelectedCountry(Country);
+    } else {
+      setActiveCities(null); 
+      setSelectedCountry(null);
     }
-  }
+  };
+
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>, name: string) => {
     const { id } = e.target;
     if (name == "country") {
-      updatecountryHandler(id)
+      updateCountryHandler(id)
     }
     setSelectedFilter((prevState: FilterSideBar) => {
       if (prevState[name] === id) {

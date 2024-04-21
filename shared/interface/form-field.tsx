@@ -33,6 +33,7 @@ export interface Job {
 }
 
 export interface JobsState {
+  totalRecord: number;
   jobs: {
     filter(arg0: (job: any) => boolean): unknown;
     jobs: Job[],
@@ -49,7 +50,8 @@ export interface JobsState {
 export interface FilterSideBar {
   sector: string,
   country: string,
-  city: string
+  city: string,
+  [key: string]: string,
 }
 
 export interface Sector {

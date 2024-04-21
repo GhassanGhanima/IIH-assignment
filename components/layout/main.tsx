@@ -15,7 +15,7 @@ const selectJobs = (state: { jobs: JobsState, currentPage: number, search: strin
 
 
 const Main: React.FC<MainProps> = ({ onMobileMenuopen }) => {
-  const [filterdJobs, setFilterdJobs] = useState<Job[] | []>()
+  const [filterdJobs, setFilterdJobs] = useState<Job[] | [] | undefined | any>()
 
 
   const dispatch = useDispatch<any>();
@@ -32,12 +32,12 @@ const Main: React.FC<MainProps> = ({ onMobileMenuopen }) => {
   }
   useEffect(()=>{
     let filterdArray= filterJobsHandler(JopStore.jobs)
+    console.log({filterdArray})
      
     setFilterdJobs(filterdArray)
   },[JopStore.jobs.jobs,JopStore.filter])
 
   const filterJobsHandler = (jobArray:JobsState) => {
-    console.log({jobArray})
     return  jobArray.jobs.filter(job => {
       const sectorMatch = JopStore.filter.sector === ''? true : job.sector === JopStore.filter.sector;
       const countryMatch = JopStore.filter.country ===''? true : job.country === JopStore.filter.country;

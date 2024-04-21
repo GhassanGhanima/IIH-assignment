@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
-import { JobFormProps, FormData, Country, Sector, CitiesState, } from "@/shared/interface/form-field";
+import { JobFormProps, FormData, Country, Sector, CitiesState, Cities, } from "@/shared/interface/form-field";
 import { getCountries, getSector } from '@/shared/services/filterService';
 
 
 const AddJobForm: React.FC<JobFormProps> = ({ onSubmit ,onClose}) => {
     const [countriesData, setCountriesData] = useState<Country[]>([]);
     const [sectors, setSectors] = useState<Sector[] | null>(null);
-    const [activeCity, setActiveCity] = useState<CitiesState | null>(null); 
+    const [activeCity, setActiveCity] = useState<CitiesState | null | any>(null); 
 
     const [formData, setFormData] = useState<FormData>({
         title: '',
@@ -77,14 +77,13 @@ const AddJobForm: React.FC<JobFormProps> = ({ onSubmit ,onClose}) => {
     const selectCountryHandler = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = event.target;
     
-        const Country: Country | null = countriesData.find((country: Country) => country.value === value)
+        const Country = countriesData.find((country: Country) => country.value === value) as Country | undefined
         if (Country) {
           setActiveCity(Country?.cities)
         }
         handleChange(event)
 
       }
-
 
     return (
 
@@ -122,7 +121,7 @@ const AddJobForm: React.FC<JobFormProps> = ({ onSubmit ,onClose}) => {
             <div className='form-group'>
                 <select id="city" name="city" value={formData.city} onChange={handleChange} disabled={formData.country==''}>
                     <option value=""> City</option>
-                    {activeCity?.map((city) => {
+                    {activeCity?.map((city:Cities) => {
                         return (
                             <option value={city.value} key={city.id}> {city.label}</option>
                         )
