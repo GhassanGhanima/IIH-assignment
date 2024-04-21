@@ -48,6 +48,7 @@ const jobsReducer = (state = initialState, action: JobsActionTypes): JobsState =
       return {
         ...state,
         search:action.payload,
+        currentPage: 1,
       };
     case ADD_JOB:
       return {
