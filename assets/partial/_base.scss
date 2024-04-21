@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+}
+
+html {
+    font-size: 16px;
+}
+
+
+input,
+select,
+textarea {
+    padding: 0.5rem;
+    border: 1px solid var(--black);
+    color: var(--black);
+
+    &:focus-visible {
+        outline: none;
+        border-color: var(--lightBlue);
+
+    }
+}
+
+button,
+select,
+input[type=checkbox] {
+    cursor: pointer;
+}
+
+select:disabled {
+    background-color: var(--gray);
+
+}
+
+
+.container-header {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    padding-bottom: 1rem;
+    position: sticky;
+    top: 0;
+    background-color: var(--gray);
+
+    input {
+        flex-grow: 1;
+    }
+}
+
+
+.btn {
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: 0;
+    font-weight: 500;
+    text-transform: capitalize;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &.btn-primary {
+        background-color: var(--primary);
+        color: var(--white);
+    }
+
+    &.btn-outline-primary {
+        background-color: var(--white);
+        color: var(--primary);
+        border: 1px solid var(--primary);
+    }
+
+
+    &.btn-secondary {
+        background-color: var(--secondary);
+        color: var(--white);
+    }
+}
+
+.jop-secton {
+    padding: 1rem;
+    background-color: var(--gray);
+
+    .card {
+        background-color: var(--white);
+        border: 1px solid var(--lightBlue);
+        margin-bottom: 1rem;
+
+        &.jop-card {
+            .btn-text {
+                display: none;
+            }
+        }
+
+
+        .card-body {
+            padding: 0.6rem;
+            display: flex;
+            gap: 1rem;
+
+            .card-content {
+                flex-grow: 1;
+                color: var(--black);
+
+                .jop-title {
+                    margin-bottom: 0.8rem;
+                    font-weight: bolder;
+                    font-size: 1.5rem;
+                }
+
+                .jop-location {
+                    margin-bottom: 0.8rem;
+                    font-weight: 500;
+                    font-size: 1rem;
+                }
+
+                .jop-sector {
+                    margin-bottom: 0.2rem;
+                    font-weight: 500;
+                    font-size: 1rem;
+                }
+
+                .jop-desc {
+                    margin-bottom: 0;
+                    font-weight: 500;
+                    font-size: 1rem;
+                    color: var(--dark-gray);
+                }
+
+
+            }
+
+            .card-action {
+                display: flex;
+                gap: 0.5rem;
+                align-self: self-start;
+
+                button {
+                    background: transparent;
+                    border: 0;
+                    font-size: 1rem;
+                    font-weight: bold;
+                    transition: all 0.2s ease-in-out;
+
+                    &:hover {
+                        scale: 1.2;
+                    }
+
+                    .icon-show {
+                        color: #4d4dbf;
+                    }
+
+                    .icon-delete {
+                        color: #ad0101;
+                    }
+                }
+
+            }
+        }
+
+        &.card-view {
+            margin-bottom: 0;
+
+            .card-body {
+                flex-direction: column;
+            }
+
+            img {
+                width: 100%;
+                object-fit: cover;
+                height: 150px;
+            }
+
+            .modal-actions {
+                margin: 0;
+            }
+        }
+
+    }
+}
+
+.container-header {
+    .btn-add {
+        .icon-add {
+            display: none;
+
+        }
+    }
+
+    .btn-menu {
+        display: none;
+
+    }
+}
+
+.sideBar {
+    .sideBar-close {
+        display: none;
+    }
+
+    .sideBar-filter {
+        ul {
+            list-style: none;
+
+            h6 {
+                color: var(--black);
+                font-size: 1.2rem;
+                font-weight: 800;
+                margin-bottom: 0.5rem;
+            }
+
+            li {
+                display: flex;
+                gap: 0.5rem;
+                font-size: 0.8rem;
+                margin-bottom: 0.5rem;
+
+                input {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+
+    }
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white);
+    border: 1px solid var(--lightBlue);
+    width: 500px;
+    min-width: 80vw;
+    max-width: 90vw;
+    padding: 0;
+
+    &.modal-sm {
+        width: 500px;
+        min-width: 40vw;
+        max-width: 90vw;
+    }
+
+    .modal-header {
+        padding: 1rem;
+        font-family: bolder;
+        background: var(--gray);
+        text-align: center;
+    }
+
+    .modal-body {
+        padding: 1rem;
+
+    }
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--black);
+    opacity: 0.5;
+    z-index: 0;
+}
+
+#addJopForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            border: 1px solid var(--lightBlue);
+        }
+
+        &.form-desc {
+            grid-column: 1/3;
+        }
+
+        .error {
+            color: var(--danger);
+        }
+    }
+
+}
+
+.modal-actions {
+    grid-column: 1/3;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 7rem;
+
+    button {
+        padding-inline: 2rem;
+
+    }
+}
+
+
+#pagination {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    padding: 1rem;
+    gap: 0.3rem;
+
+    li {
+        button {
+            background-color: var(--white);
+            color: var(--dark);
+            border: 1px solid var(--dark);
+
+            width: 30px;
+            height: 30px;
+            box-shadow: -1px 0px 4px 0px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: -1px 0px 4px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: -1px 0px 4px 0px rgba(0, 0, 0, 0.75);
+        }
+
+        &.active {
+            button {
+                background-color: var(--primary);
+                color: var(--white);
+                border: 1px solid var(--primary);
+
+
+            }
+        }
+    }
+
+}

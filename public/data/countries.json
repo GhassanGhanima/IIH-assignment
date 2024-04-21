@@ -1,0 +1,139 @@
+[
+  {
+    "id": "1asd",
+    "label": "Palestine",
+    "value": "Palestine",
+    "country": "Palestine",
+    "cities": [
+      {
+        "id": "112312",
+        "label": "Ramallah",
+        "value": "Ramallah"
+      },
+      {
+        "id": "11234342234",
+        "label": "Bethlehem",
+        "value": "Bethlehem"
+      },
+      {
+        "id": "15235235",
+        "label": "Hebron",
+        "value": "Hebron"
+      },
+      {
+        "id": "2352352351",
+        "label": "Gaza",
+        "value": "Gaza"
+      },
+      {
+        "id": "1346345345",
+        "label": "Jericho",
+        "value": "Jericho"
+      },
+      {
+        "id": "13463456345",
+        "label": "Jenin",
+        "value": "Jenin"
+      }
+    ]
+  },
+  {
+    "id": "1345345345345",
+    "label": "Jordan",
+    "value": "Jordan",
+    "country": "Jordan",
+    "cities": [
+      {
+        "id": "1345345345345",
+        "label": "Amman",
+        "value": "Amman"
+      },
+      {
+        "id": "3453453453451",
+        "label": "Zarqa",
+        "value": "Zarqa"
+      },
+      {
+        "id": "54675675675671",
+        "label": "Irbid",
+        "value": "Irbid"
+      },
+      {
+        "id": "56756787871",
+        "label": "Aqaba",
+        "value": "Aqaba"
+      },
+      {
+        "id": "17867869678",
+        "label": "Madaba",
+        "value": "Madaba"
+      }
+    ]
+  },
+  {
+    "id": "1678678678",
+    "label": "Lebanon",
+    "value": "Lebanon",
+    "country": "Lebanon",
+    "cities": [
+      {
+        "id": "154623523423",
+        "label": "Beirut",
+        "value": "Beirut"
+      },
+      {
+        "id": "23452341",
+        "label": "Tripoli",
+        "value": "Tripoli"
+      },
+      {
+        "id": "2342654671",
+        "label": "Sidon",
+        "value": "Sidon"
+      },
+      {
+        "id": "14578568678",
+        "label": "Tyre",
+        "value": "Tyre"
+      },
+      {
+        "id": "1345234234",
+        "label": "Jounieh",
+        "value": "Jounieh"
+      }
+    ]
+  },
+  {
+    "id": "3465467851",
+    "label": "Saudi Arabia",
+    "value": "Saudi Arabia",
+    "country": "Saudi Arabia",
+    "cities": [
+      {
+        "id": "13453675467",
+        "label": "Riyadh",
+        "value": "Riyadh"
+      },
+      {
+        "id": "1234667879789",
+        "label": "Jeddah",
+        "value": "Jeddah"
+      },
+      {
+        "id": "1780789789",
+        "label": "Mecca",
+        "value": "Mecca"
+      },
+      {
+        "id": "909808901",
+        "label": "Medina",
+        "value": "Medina"
+      },
+      {
+        "id": "1123123234523423",
+        "label": "Dammam",
+        "value": "Dammam"
+      }
+    ]
+  }
+]

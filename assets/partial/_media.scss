@@ -1,0 +1,132 @@
+@media (max-width:991px) {
+    :root {
+        --body-padding: 1rem
+    }
+
+    .layout {
+        .sideBar {
+            transform: translateX(calc(-100% - var(--body-padding)));
+            transition: all 0.2s ease-in-out;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            z-index: 2;
+
+            .sideBar-toggle {
+                display: flex;
+            }
+
+            .sideBar-close {
+                display: flex !important;
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin: 1rem;
+            }
+
+        }
+
+        .main-container {
+            width: calc(100vw - (2* var(--body-padding)));
+            margin-inline-start: 0;
+
+            &::-webkit-scrollbar {
+                width: 0;
+            }
+
+            .container-header {
+                .btn-add {
+                    .btn-text {
+                        display: none;
+                    }
+
+                    .icon-add {
+                        display: flex;
+                        font-size: 1rem;
+
+                    }
+                }
+
+                .btn-menu {
+                    display: flex;
+                    font-size: 1rem;
+
+
+                }
+            }
+
+
+        }
+
+        &.active-sideBar {
+            .sideBar {
+                transform: none;
+                transform: 0;
+                width: 100vw;
+            }
+        }
+    }
+
+    #addJopForm {
+        .form-group {
+            grid-column: 1 / 3
+        }
+
+    }
+
+}
+
+@media (max-width:576px) {
+    html {
+        font-size: 12px;
+    }
+
+    .jop-card {
+        .card-body {
+            flex-direction: column;
+
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+
+            .card-action {
+                width: 100%;
+
+                .btn-sm-primary {
+
+                    padding: 0.5rem;
+                    background-color: var(--white);
+                    color: var(--primary);
+                    border: 1px solid var(--primary) !important;
+                    width: 50%;
+
+                    &:hover {
+                        scale: 1 !important;
+                    }
+                }
+
+                .btn-sm-danger {
+                    padding: 0.5rem;
+                    color: var(--danger);
+                    border: 1px solid var(--danger) !important;
+                    width: 50%;
+
+                    &:hover {
+                        scale: 1 !important;
+                    }
+
+                }
+
+                .btn-text {
+                    display: block;
+                }
+
+                .icon {
+                    display: none;
+                }
+            }
+
+        }
+    }
+}

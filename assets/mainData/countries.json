@@ -1,0 +1,60 @@
+[
+    {
+      "country": "Palestine",
+      "cities": [
+        "Ramallah",
+        "Bethlehem",
+        "Hebron",
+        "Gaza",
+        "Jericho",
+        "Jenin"
+      ]
+    },
+    {
+      "country": "Jordan",
+      "cities": [
+        "Amman",
+        "Zarqa",
+        "Irbid",
+        "Aqaba",
+        "Madaba"
+      ]
+    },
+    {
+      "country": "Lebanon",
+      "cities": [
+        "Beirut",
+        "Tripoli",
+        "Sidon",
+        "Tyre",
+        "Jounieh"
+
+      ]
+    },
+    {
+      "country": "Saudi Arabia",
+      "cities": [
+        "Riyadh",
+        "Jeddah",
+        "Mecca",
+        "Medina",
+        "Dammam"
+
+      ]
+    }
+  ]
+
+
+  // sector{
+  //   sales ,
+  //   Arilines,
+  //   Adminstrations,
+  //   ComputerSoftwar
+  // }
+
+  // Country{
+  //   Palestine,
+  //   Joorda,
+  //   Lebanone,
+  //   saudia Arabia
+  // }
