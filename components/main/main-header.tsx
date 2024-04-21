@@ -21,6 +21,7 @@ const MainHeader: React.FC<MainHeaderProps> = ({ onMobileMenuopen }) => {
 
 
 
+  
   const debouncedSearch = useDebounce(search, 1000);
 
 
