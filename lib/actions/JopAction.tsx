@@ -14,10 +14,13 @@ export const readJobs = (currentPage: number = 1, searchParams: string = ""): Th
       }
 
       const response = await fetch(url)
-      const jobs: Job[] = await response.json();
+      const jobs = await response.json();
       dispatch({
         type: READ_JOBS,
-        payload: jobs,
+        payload:{
+          jobs: jobs.jobs,
+          totalRecord: jobs.totalRecord
+        },
       });
     } catch (error) {
       console.error("Error reading jobs:", error);
@@ -37,10 +40,13 @@ export const addJob = (fromData: FormData): ThunkAction<void, UnknownAction, any
         },
         body: JSON.stringify(fromData)
       });
-      const newJob: Job = await response.json();
+      const newJob = await response.json();
       dispatch({
         type: ADD_JOB,
-        payload: newJob
+        payload:{
+          jobs: newJob.jobs,
+          totalRecord: newJob.totalRecord
+        },
       });
     } catch (error) {
       console.error("Error adding job:", error);
@@ -54,11 +60,15 @@ export const deleteJob = (id: string, currentPage: number = 1): ThunkAction<void
       const response = await fetch(`api/jobs?id=${id}&&currentPage=${currentPage}`, {
         method: "DELETE"
       });
-      const Jobs: Job = await response.json();
+      const Jobs = await response.json();
 
       dispatch({
         type: DELETE_JOB,
-        payload: Jobs
+        payload: {
+          jobs: Jobs.jobs,
+          totalRecord: Jobs.totalRecord,
+          id: id,
+        }
       });
     } catch (error) {
       console.error("Error deleting job:", error);
@@ -66,7 +76,7 @@ export const deleteJob = (id: string, currentPage: number = 1): ThunkAction<void
   };
 };
 
-export const readSearch = (searchParams?: string): ThunkAction<void, UnknownAction, any, JobsActionTypes> => {
+export const readSearch = (searchParams: string): ThunkAction<void, UnknownAction, any, JobsActionTypes> => {
   return async (dispatch) => {
     try {
       dispatch({
@@ -79,7 +89,7 @@ export const readSearch = (searchParams?: string): ThunkAction<void, UnknownActi
   };
 };
 
-export const setCurrentPageAction = (currentPage?: number): ThunkAction<void, UnknownAction, any, JobsActionTypes> => {
+export const setCurrentPageAction = (currentPage: number): ThunkAction<void, UnknownAction, any, JobsActionTypes> => {
   return async (dispatch) => {
     try {
       dispatch({
@@ -94,6 +104,7 @@ export const setCurrentPageAction = (currentPage?: number): ThunkAction<void, Un
 export const setFilterAction = (filter: FilterSideBar): ThunkAction<void, UnknownAction, any, JobsActionTypes> => {
   return async (dispatch) => {
     try {
+      console.log(filter)
       dispatch({
         type: FILLTER_SIDEBAR,
         payload: filter,

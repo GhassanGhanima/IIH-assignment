@@ -11,19 +11,19 @@ const initialState: JobsState = {
     map: function (arg0: (jop: Job) => JSX.Element): ReactNode {
       throw new Error("Function not implemented.");
     },
-    filter(arg0: (job: any) => boolean): ReactNode{
+    filter(arg0: (job: any) => boolean): ReactNode {
       throw new Error("Function not implemented.");
     }
-
   },
 
   currentPage: 1,
-  filter:{
-    sector:'',
-    country:'',
-    city:''
+  filter: {
+    sector: '',
+    country: '',
+    city: ''
   },
-  search:''
+  search: '',
+  totalRecord: 0
 };
 
 const jobsReducer = (state = initialState, action: JobsActionTypes): JobsState => {
